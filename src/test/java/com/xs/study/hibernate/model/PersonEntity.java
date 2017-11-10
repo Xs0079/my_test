@@ -1,9 +1,6 @@
 package com.xs.study.hibernate.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Xu Sheng on 2017/11/9.
@@ -12,16 +9,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "person", schema = "testDB")
 public class PersonEntity {
-    private String id;
+    private Integer id;
     private String name;
     private Byte sex;
 
     @Id
-    public String getId() {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
